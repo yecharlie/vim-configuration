@@ -1,4 +1,4 @@
-set guifont=Consolas:h15:cANSI:qDRAFT
+set guifont=Consolas:h18:cANSI:qDRAFT
 
 set number
 
@@ -25,6 +25,8 @@ set softtabstop=4
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 " Ctrl+\ - Open the definition in a new tab
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+" Automatically search tags file upwards
+set tags=./tags;/
 
 " input method configuration, conveniently typing non-lation in inert mode
 set noimdisable
@@ -73,6 +75,7 @@ Plugin 'Solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'lervag/vimtex'
 Plugin 'VimCompletesMe'
+Plugin 'nine2/vim-copyright'
  
 
 " All of your Plugins must be added before the following line
@@ -100,6 +103,13 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" Syntastic takes mannual mode
+let g:syntastic_mode_map = {
+    \ "mode": "passive",
+    \ "active_filetypes": [],
+    \ "passive_filetypes": [] }
+
+
 " Solarized theme settings
 syntax enable
 if has('gui_running')
@@ -119,6 +129,12 @@ let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 " disable conceal mode in Tex
 let g:tex_conceal=""
 
+" vintex interprets .tex as latex"
+let g:tex_flavor = 'latex'
+
 " map shift-tab to tab in insert mode as tab is occupied for auto-complete
 let g:vcm_s_tab_behavior = 1
 
+" vim-copyright
+let g:file_copyright_name = "叶天奇"
+let g:file_copyright_email = $MAIL
