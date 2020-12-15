@@ -133,8 +133,9 @@ let g:tex_conceal=""
 let g:tex_flavor = 'latex'
 
 " map shift-tab to tab in insert mode as tab is occupied for auto-complete
-let g:vcm_s_tab_behavior = 1
+let g:vcm_s_tab_behavior = 0
 
 " vim-copyright
 let g:file_copyright_name = "叶天奇"
 let g:file_copyright_email = $MAIL
+let g:file_copyright_auto_update = 1 " update when save file
